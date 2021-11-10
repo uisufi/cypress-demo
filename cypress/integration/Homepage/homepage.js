@@ -1,3 +1,6 @@
+
+/// <reference types="Cypress" />
+
 import {And, Given, Then, When} from "cypress-cucumber-preprocessor/steps";
 
 Given("I navigate to Google", () => {
@@ -17,5 +20,6 @@ When("I hit enter", () => {
 })
 
 Then("Pixel phones are displayed in the search page", () => {
-    console.log("Another step")
+    const Gmail = 'Gmail'
+    cy.contains(Gmail).should('be.visible')
 })
