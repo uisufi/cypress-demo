@@ -31,6 +31,7 @@ afterEach(() => {
                 testState.currentStep
             ]
         if (stepResult?.status === 'failed') {
+            cy.log('Test failed', testState.feature.name)
             const screenshotFileName = `${testState.feature.name} -- ${testState.currentScenario.name} (failed).png`
             cy.readFile(
                 `${screenshotsFolder}/${Cypress.spec.name}/${screenshotFileName}`,
@@ -45,8 +46,9 @@ afterEach(() => {
                     ),
                 }
             })
+        } else {
+            cy.log('Test passed', testState.feature.name)
         }
     }
 })
-
 import './commands'
